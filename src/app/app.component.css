@@ -4,6 +4,16 @@
     margin: 0;
 }
 
+@font-face {
+    font-family: RobotoCondensed-Regular;
+    src: url('../assets/fonts/RobotoCondensed-Regular.ttf');
+}
+
+@font-face {
+    font-family: SairaCondensed-Bold;
+    src: url('../assets/fonts/SairaCondensed-Bold.ttf');
+}
+
 html {
     margin: 0;
     padding: 0;
@@ -20,6 +30,7 @@ h6,
 p,
 li,
 div {
+    font-family: RobotoCondensed-Regular;
     margin: 0;
 }
 

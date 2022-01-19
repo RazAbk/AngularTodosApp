@@ -1,0 +1,12 @@
+.todo-list{
+    width: 100%;
+    height: calc(100vh - 5rem);
+    padding: 1rem;
+
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-rows: repeat(auto-fill, 250px);
+    justify-content: center;
+    justify-items: center;
+}

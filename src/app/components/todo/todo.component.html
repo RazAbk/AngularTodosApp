@@ -1,0 +1,9 @@
+<div class="todo">
+    <h2>{{todo.title}}</h2>
+    <div class="tasks">
+        <div class="task" *ngFor="let task of todo.tasks">
+            <input [checked]="task.isDone" (change)="onToggle()" type="checkbox">
+            <p [ngStyle]="{textDecoration: task.isDone ? 'line-through' : ''}">{{task.description}}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+.todo{
+    background-color: rgb(207, 207, 207);
+    padding: 1rem;
+    border-radius: 10px;
+    width: 300px;
+    height: 250px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.todo h2{
+    text-align: center;
+    font-size: 2rem;
+}
+
+.todo .tasks{
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    max-height: 75%;
+    overflow-y: auto;
+}
+
+.todo .tasks .task {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.todo .tasks .task input{
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+}
+
+.todo .tasks .task p{
+    font-size: 1.25rem;
+}
