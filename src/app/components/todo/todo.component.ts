@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { todo } from 'src/app/interfaces/interfaces';
+import { Todo } from 'src/app/interfaces/todo';
 
 @Component({
   selector: 'app-todo',
@@ -7,7 +7,7 @@ import { todo } from 'src/app/interfaces/interfaces';
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent implements OnInit {
-  @Input() todo: todo
+  @Input() todo: Todo
 
   constructor() { }
 
@@ -15,7 +15,7 @@ export class TodoComponent implements OnInit {
   }
 
 
-  onToggle() {
-    console.log('hey!')
+  onToggle(taskId: string) {
+    console.log(taskId)
   }
 }
