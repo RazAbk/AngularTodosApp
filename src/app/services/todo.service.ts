@@ -161,4 +161,21 @@ export class TodoService {
     return of(todos)
   }
 
+  public getNewTask(taskTxt: string) {
+    return {
+      id: this._makeId(),
+      description: taskTxt,
+      isDone: false
+    }
+  }
+
+  private _makeId(length = 5) {
+    var text = "";
+    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    for (var i = 0; i < length; i++) {
+      text += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return text;
+  }
+
 }

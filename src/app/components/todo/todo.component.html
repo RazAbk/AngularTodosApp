@@ -4,6 +4,12 @@
         <div class="task" *ngFor="let task of todo.tasks">
             <input [checked]="task.isDone" (change)="onToggle(task.id)" type="checkbox">
             <p [ngStyle]="{textDecoration: task.isDone ? 'line-through' : ''}">{{task.description}}</p>
+            <span (click)="onDeleteTask(task.id)">X</span>
+        </div>
+        <div class="add-task">
+            <!-- <p class="add-task" (click)="onAddTask()">Add a new task</p> -->
+            <input type="text" placeholder="add task" #newtask>
+            <button (click)="onAddTask(newtask.value)">add</button>
         </div>
     </div>
 </div>

@@ -24,4 +24,20 @@ export class TodoComponent implements OnInit {
 
     this.todoService.edit(newTodo)
   }
+
+  onDeleteTask(taskId: string) {
+    const newTodo: Todo = JSON.parse(JSON.stringify(this.todo))
+    const taskIdx = newTodo.tasks.findIndex((currTask: Task) => currTask.id === taskId)
+    newTodo.tasks.splice(taskIdx, 1)
+    this.todoService.edit(newTodo)
+  }
+  
+  onAddTask(taskTxt: string) {
+    if(!taskTxt) return
+
+    const newTodo: Todo = JSON.parse(JSON.stringify(this.todo))
+    const newTask = this.todoService.getNewTask(taskTxt)
+    newTodo.tasks.push(newTask)
+    this.todoService.edit(newTodo)
+  }
 }

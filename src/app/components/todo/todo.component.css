@@ -1,4 +1,5 @@
 .todo{
+    position: relative;
     background-color: rgb(207, 207, 207);
     padding: 1rem;
     border-radius: 10px;
@@ -37,4 +38,22 @@
 
 .todo .tasks .task p{
     font-size: 1.25rem;
+}
+
+.todo .tasks .add-task{
+    display: flex;
+    gap: 1rem;
+}
+
+.todo span{
+    position: absolute;
+    right: 0;
+    padding-right: 1rem;
+    color: rgb(134, 0, 0);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.todo span:hover{
+    color: rgb(255, 0, 0);
 }
