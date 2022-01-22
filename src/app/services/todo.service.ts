@@ -160,6 +160,18 @@ export class TodoService {
     this._todos$.next(todos)
     return of(todos)
   }
+  
+  public delete(todoId: string) {
+    const todos = JSON.parse(localStorage.getItem('todos')) || []
+    if(todos.length === 0) return
+    
+    const todoIdx = todos.findIndex((currTodo: Todo) => currTodo.id === todoId)
+    todos.splice(todoIdx, 1)
+    
+    localStorage.setItem('todos', JSON.stringify(todos))
+    this._todos$.next(todos)
+    return of(todos)
+  }
 
   public getNewTask(taskTxt: string) {
     return {
@@ -167,6 +179,20 @@ export class TodoService {
       description: taskTxt,
       isDone: false
     }
+  }
+
+  public addTodo(title: string) {
+    const todos = JSON.parse(localStorage.getItem('todos')) || []
+    
+    todos.push({
+      id: this._makeId(),
+      title: title,
+      tasks: []
+    })
+    
+    localStorage.setItem('todos', JSON.stringify(todos))
+    this._todos$.next(todos)
+    return of(todos)
   }
 
   private _makeId(length = 5) {

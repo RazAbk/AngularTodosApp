@@ -1,3 +1,6 @@
 <div class="todo-list">
     <app-todo *ngFor="let todo of todos" [todo]="todo"></app-todo>
+    <div class="new-todo" (click)="onAddTodo()">
+        <fa-icon class="hamburger-icon" [icon]="plusicon"></fa-icon>
+    </div>
 </div>

@@ -31,6 +31,10 @@ export class TodoComponent implements OnInit {
     newTodo.tasks.splice(taskIdx, 1)
     this.todoService.edit(newTodo)
   }
+
+  onDeleteTodo() {
+    this.todoService.delete(this.todo.id)
+  }
   
   onAddTask(taskTxt: string) {
     if(!taskTxt) return
@@ -40,4 +44,6 @@ export class TodoComponent implements OnInit {
     newTodo.tasks.push(newTask)
     this.todoService.edit(newTodo)
   }
+
+
 }
