@@ -6,8 +6,6 @@ import { Todo } from '../interfaces/todo';
   providedIn: 'root'
 })
 export class TodoService {
-  
-  constructor() { }
 
   private TODOS_DB: Todo[] = [
     {
@@ -137,12 +135,30 @@ export class TodoService {
       ]
     }
   ]
+  
+  constructor() {
+    const isTodos = localStorage.getItem('todos')
+    if(!isTodos){
+      localStorage.setItem('todos', JSON.stringify(this.TODOS_DB))
+    }
+  }
+
+  private _TODOS: Todo[] = JSON.parse(localStorage.getItem('todos')) || []
 
   private _todos$ = new BehaviorSubject([])
   public todos$ = this._todos$.asObservable()
 
   public query() {
-    this._todos$.next(this.TODOS_DB)
+    this._todos$.next(this._TODOS)
+  }
+
+  public edit(todo: Todo) {
+    const todos = JSON.parse(localStorage.getItem('todos')) || []
+    const todoIdx = todos.findIndex((currTodo: Todo) => currTodo.id === todo.id)
+    todos[todoIdx] = todo
+    localStorage.setItem('todos', JSON.stringify(todos))
+    this._todos$.next(todos)
+    return of(todos)
   }
 
 }
